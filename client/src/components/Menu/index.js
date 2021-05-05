@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Menu(props) {
+export function SortMenu(props) {
   return (
     <select className="form-select" aria-label="Default select example" {...props}>
       <option defaultValue value="1">Sort alphabetically</option>
@@ -9,4 +9,12 @@ function Menu(props) {
   )
 }
 
-export default Menu;
+export function ShowMenu(props) {
+  return (
+    <select className="form-select" aria-label="Default select example" {...props}>
+      <option defaultValue value="0">Show all</option>
+      <option defaultValue value="1">Men</option>
+      <option value="2">Women</option>
+    </select>
+  )
+}

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
 import Card from '../components/Card/index.js'
-import Menu from '../components/Menu/index'
+import {SortMenu, ShowMenu} from '../components/Menu/index'
 
 function Users() {
   const [users, setUsers] = useState([])
@@ -46,9 +46,10 @@ function Users() {
 
   return (
     <Container fluid>
-      <Menu
+      <SortMenu
         onChange={handleMenuChange}
       />
+      <ShowMenu />
       {users.sort(sortChoice === 1 ? sortAlph : sortAge).map(user => {
         return <Row>
           <Col size="md-12">
