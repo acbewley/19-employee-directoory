@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
 import Card from '../components/Card/index.js'
+import Menu from '../components/Menu/index'
 
 
 function Users() {
@@ -24,6 +25,7 @@ function Users() {
 
   return (
     <Container fluid>
+      <Menu />
       {users.map(user => {
         return <Row>
           <Col size="md-12">
