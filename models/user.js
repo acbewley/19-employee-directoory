@@ -25,6 +25,9 @@ const userSchema = new Schema({
     medium: {
       type: String
     }
+  },
+  gender: {
+    type: String
   }
 });
 

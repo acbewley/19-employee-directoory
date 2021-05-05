@@ -7,6 +7,7 @@ import {SortMenu, ShowMenu} from '../components/Menu/index'
 function Users() {
   const [users, setUsers] = useState([])
   const [sortChoice, setSort] = useState(1)
+  const [showChoice, setShow] = useState(0)
 
   useEffect(() => {
     API.getUsers()
@@ -44,13 +45,29 @@ function Users() {
     }
   }
 
+  const handleShowChange = event => {
+    if (event.target.value === '0') {
+      setShow(0)
+    } else if (event.target.value === '1') {
+      setShow(1)
+    } else if (event.target.value === '2') {
+      setShow(2)
+    }
+  }
+
   return (
     <Container fluid>
       <SortMenu
         onChange={handleMenuChange}
       />
-      <ShowMenu />
-      {users.sort(sortChoice === 1 ? sortAlph : sortAge).map(user => {
+      <ShowMenu 
+        onChange={handleShowChange}
+      />
+      {users.filter(
+        showChoice === 0 ? user => user.name.first.length > 0
+        : showChoice === 1 ? user => user.gender === 'male'
+        : user => user.gender === 'female'
+      ).sort(sortChoice === 1 ? sortAlph : sortAge).map(user => {
         return <Row>
           <Col size="md-12">
             <Card
