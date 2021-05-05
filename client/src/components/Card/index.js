@@ -1,15 +1,13 @@
 import React from 'react';
 
-function Card() {
+function Card(props) {
   return (
-    <div class="card">
-      <div class="card-header">
-        Featured
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">Special title treatment</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+    <div className="card">
+      <div className="card-body">
+        <h5 className="card-title">{props.name}</h5>
+        <p className="card-text">Age: {props.age}</p>
+        <p className="card-text">Contact: {props.email}</p>
+        <img alt={props.name} src={props.picture} style={{ float: "right" }} />
       </div>
     </div>
   )
